@@ -1,4 +1,5 @@
 import useFetch from "../hooks/useFetch";
+import { DataResponse } from "../utils/types";
 import styles from "../styles/components/Hero.module.scss";
 import recipe from "../assets/recipe.png";
 import world from "../assets/world.svg";
@@ -7,7 +8,7 @@ import photo from "../assets/photo.png";
 import Play from "../assets/play-circle.svg?react";
 
 const Hero = () => {
-  const { data, loading, error } = useFetch(
+  const { data } = useFetch<DataResponse>(
     "https://www.themealdb.com/api/json/v1/1/random.php"
   );
 
