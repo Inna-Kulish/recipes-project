@@ -1,11 +1,15 @@
 import Header from "./components/Header";
+import Hero from "./components/Hero";
 
 const App = () => {
 
   return (
-    <div>
-      <Header/>
+    <>
+      <Header />
+    <div className="container">
+      <Hero/>
     </div>
+    </>
   );
 }
 

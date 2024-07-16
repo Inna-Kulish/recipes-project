@@ -1,4 +1,9 @@
 .container {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media screen and (min-width: 1060px) {
+            padding-left: 80px;
+            padding-right: 80px;
+        }
 }
