@@ -1,11 +1,11 @@
-import useFetch from "../hooks/useFetch";
-import { DataResponse } from "../utils/types";
-import styles from "../styles/components/Hero.module.scss";
-import recipe from "../assets/recipe.png";
-import world from "../assets/world.svg";
-import fork from "../assets/fork-knife.svg";
-import photo from "../assets/photo.png";
-import Play from "../assets/play-circle.svg?react";
+import useFetch from "../../hooks/useFetch";
+import { DataResponse } from "../../utils/types";
+import styles from "./Hero.module.scss";
+import recipe from "../../assets/recipe.png";
+import world from "../../assets/world.svg";
+import fork from "../../assets/fork-knife.svg";
+import photo from "../../assets/photo.png";
+import Play from "../../assets/play-circle.svg?react";
 
 const Hero = () => {
   const { data } = useFetch<DataResponse>(
