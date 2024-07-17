@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
-@import "../base/variables";
+@import "../../styles/variables";
 
 .headerContainer {
   border-bottom: 1px solid $gray;
@@ -43,6 +43,7 @@
 .socialsList {
   display: flex;
   gap: 40px;
+  align-items: center;
 
   a {
     transition: all 0.3s ease-in-out;
@@ -54,17 +55,33 @@
 }
 
 .mobileContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: none;
 }
 
-.menuBtn {
+@media screen and (max-width: 1060px) {
+  .nav {
+    display: none;
+  }
+
+  .mobileContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menuBtn {
     transition: all 0.3s ease-in-out;
-}
+  }
 
-.menuBtn:hover, .menuBtn:focus {
+  .menuBtn:hover,
+  .menuBtn:focus {
     fill: $blueHover;
+  }
+
+  .socialsList {
+    justify-content: center;
+    margin-top: auto;
+  }
 }
 
 .crossBtn {
@@ -77,12 +94,13 @@
   border: 1px solid $gray;
   border-radius: 50%;
 
-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.crossBtn:hover, .crossBtn:focus {
-    border-color: $blueHover;
-    background-color: $white;
+.crossBtn:hover,
+.crossBtn:focus {
+  border-color: $blueHover;
+  background-color: $white;
 }
 
 .mobileBox {
@@ -98,6 +116,7 @@ transition: all 0.3s ease-in-out;
   width: 50%;
   height: 100%;
   padding-top: 80px;
+  padding-bottom: 40px;
 
   background-color: $blue;
 }
@@ -118,7 +137,8 @@ transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
 
-  a:hover, a:focus {
+  a:hover,
+  a:focus {
     color: $white;
     background-color: $blueHover;
   }
