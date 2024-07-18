@@ -1,15 +1,17 @@
-import Header from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
+import { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import SharedLayout from "./components/SharedLayout";
+
+const Home = lazy(() => import("./pages/Home"));
 
 const App = () => {
 
   return (
-    <>
-      <Header />
-    <div className="container">
-      <Hero/>
-    </div>
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home/>} />
+      </Route>
+    </Routes>
   );
 }
 

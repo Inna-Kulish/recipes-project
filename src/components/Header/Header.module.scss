@@ -2,7 +2,7 @@
 @import "../../styles/variables";
 
 .headerContainer {
-  border-bottom: 1px solid $gray;
+  border-bottom: 1px solid $black10;
 }
 
 .nav {
@@ -29,15 +29,16 @@
   gap: 60px;
 
   a {
-    padding-top: 40px;
-    padding-bottom: 40px;
-
-    transition: all 0.3s ease-in-out;
-  }
-
-  a:hover {
-    color: $blueHover;
-  }
+      padding-top: 40px;
+      padding-bottom: 40px;
+  
+      transition: all 0.3s ease-in-out;
+    }
+  
+    a:hover,
+    a:focus {
+      color: $blueHover;
+    }
 }
 
 .socialsList {
@@ -49,7 +50,7 @@
     transition: all 0.3s ease-in-out;
   }
 
-  a:hover {
+  a:hover, a:focus {
     fill: $blueHover;
   }
 }
@@ -91,7 +92,7 @@
 
   width: 40px;
   padding: 10px;
-  border: 1px solid $gray;
+  border: 1px solid $black10;
   border-radius: 50%;
 
   transition: all 0.3s ease-in-out;
@@ -142,4 +143,8 @@
     color: $white;
     background-color: $blueHover;
   }
+
+     a:active {
+       color: red;
+     }
 }
