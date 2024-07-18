@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import "../../styles/variables";
+
+.headerContainer {
+  border-bottom: 1px solid $black10;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  font-family: "Lobster", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+
+  span {
+    color: $red;
+  }
+}
+
+.navList {
+  display: flex;
+  gap: 60px;
+
+  a {
+      padding-top: 40px;
+      padding-bottom: 40px;
+  
+      transition: all 0.3s ease-in-out;
+    }
+  
+    a:hover,
+    a:focus {
+      color: $blueHover;
+    }
+}
+
+.socialsList {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+
+  a {
+    transition: all 0.3s ease-in-out;
+  }
+
+  a:hover, a:focus {
+    fill: $blueHover;
+  }
+}
+
+.mobileContainer {
+  display: none;
+}
+
+@media screen and (max-width: 1060px) {
+  .nav {
+    display: none;
+  }
+
+  .mobileContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menuBtn {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .menuBtn:hover,
+  .menuBtn:focus {
+    fill: $blueHover;
+  }
+
+  .socialsList {
+    justify-content: center;
+    margin-top: auto;
+  }
+}
+
+.crossBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 40px;
+  padding: 10px;
+  border: 1px solid $black10;
+  border-radius: 50%;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.crossBtn:hover,
+.crossBtn:focus {
+  border-color: $blueHover;
+  background-color: $white;
+}
+
+.mobileBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  width: 50%;
+  height: 100%;
+  padding-top: 80px;
+  padding-bottom: 40px;
+
+  background-color: $blue;
+}
+
+.mobileList {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  font-size: 20px;
+
+  a {
+    display: block;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  a:hover,
+  a:focus {
+    color: $white;
+    background-color: $blueHover;
+  }
+
+     a:active {
+       color: red;
+     }
+}

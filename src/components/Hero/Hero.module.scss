@@ -1,0 +1,168 @@
+@import "../../styles/variables";
+
+.heroContainer {
+  overflow: hidden;
+  margin-top: 40px;
+  border-radius: 30px;
+
+  @media screen and (min-width: 1060px) {
+    display: flex;
+    height: 640px;
+  }
+}
+
+.descWrap {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  background-color: $blue;
+
+  @media screen and (min-width: 1060px) {
+    width: 50%;
+    padding: 50px;
+  }
+}
+
+.hotRecipe {
+  display: flex;
+  gap: 13px;
+  width: 156px;
+  padding: 11px 20px;
+  align-items: center;
+  border-radius: 30px;
+  background-color: $white;
+
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.title {
+  margin-top: 32px;
+
+  text-align: center;
+  font-size: 32px;
+  letter-spacing: -0.04em;
+
+  @media screen and (min-width: 1060px) {
+    text-align: start;
+    font-size: 64px;
+  }
+}
+
+.describe {
+  height: 56px;
+  margin-top: 24px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+
+  color: $black60;
+  letter-spacing: 0;
+  line-height: 28px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+  margin-top: 30px;
+
+  @media screen and (min-width: 1060px) {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  p {
+    display: flex;
+    gap: 10px;
+    padding: 8px 16px;
+    align-items: center;
+
+    border-radius: 30px;
+    background-color: $black5;
+
+    color: $black60;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+
+.box {
+  margin-top: 10px;
+
+  @media screen and (min-width: 1060px) {
+    display: flex;
+    margin-top: auto;
+    justify-content: space-between;
+  }
+}
+
+.authorBox {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.date {
+  color: $black60;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.moreBtn {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease-in-out;
+
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background-color: $black;
+
+  color: $white;
+  font-weight: 600;
+  font-size: 14px;
+
+  @media screen and (min-width: 1060px) {
+    margin: 0;
+  }
+
+  svg {
+    transition: all 0.3s ease-in-out;
+    fill: $white;
+  }
+}
+
+.moreBtn:hover,
+.moreBtn:focus {
+  color: $black;
+  background-color: $white;
+
+  svg {
+    fill: $black;
+  }
+}
+
+.imgMeal {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+
+  @media screen and (min-width: 1060px) {
+    width: 50%;
+    height: 100%;
+  }
+}
