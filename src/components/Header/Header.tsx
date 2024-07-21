@@ -16,8 +16,8 @@ const Header = () => {
               Foodieland<span>.</span>
           </Link>
           <ul className={styles.navList}>
-            {NAV_LINKS.map(({title, navLink}, index) => (
-               <li key={`${title}_${index}`}>
+            {NAV_LINKS.map(({ title, navLink }, index) => (
+                <li key={`${title}_${index}`}>
                 <NavLink to={navLink}>{title}</NavLink>
               </li>
              ))}
