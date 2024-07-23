@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import "../../styles/variables";
+
+.container {
+  margin-top: 160px;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  letter-spacing: -0.04em;
+
+@media screen and (min-width: 1060px) {
+    font-size: 48px;
+}
+}
+
+.desc {
+  max-width: 706px;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+  line-height: 28px;
+  color: $black60;
+
+ 
+}
+
+.gridBox {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  margin-top: 96px;
+
+  @media screen and (min-width: 1060px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+.list {
+  display: contents;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 16px 32px;
+
+  border-radius: 30px;
+  background-image: linear-gradient($blueLiner 0, $blueLiner 100%);
+}
+
+.photo {
+  border-radius: 30px;
+}
+
+.name {
+  margin-top: 24px;
+
+  font-size: 24px;
+  letter-spacing: -0.04em;
+  line-height: 32px;
+}
+
+.btn {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  padding: 14px 13px;
+  border-radius: 50%;
+  background-color: $white;
+
+  svg {
+    display: block;
+    fill: $fusionRed;
+  }
+}
+
+.adWrap {
+  padding-top: 40px;
+  padding-bottom: 32px;
+
+  text-align: center;
+  background-image: url("../../assets/star.svg"),
+    linear-gradient($bcgGreenAd, $bcgBlackAd);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (min-width: 1060px) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+}
+
+.adTitle {
+  width: 172px;
+  margin-left: auto;
+  margin-right: auto;
+
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0;
+  color: $white;
+}
+
+.adImg {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link {
+  font-size: 14px;
+  color: $white60;
+}

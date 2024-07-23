@@ -1,19 +1,20 @@
 interface Meal {
-        strMeal: string;
-        strInstructions: string;
-        strCategory: string;
-        strArea: string;
-        strMealThumb: string;
+  idMeal: string;
+  strMeal: string;
+  strInstructions?: string;
+  strCategory?: string;
+  strArea?: string;
+  strMealThumb: string;
 }
 
 export interface DataResponse {
-    meals: Meal[];
+  meals: Meal[];
 }
 
 interface Category {
-    strCategory: string;
+  strCategory: string;
 }
 
 export interface CategoryData {
-    meals: Category[];
+  meals: Category[];
 }
