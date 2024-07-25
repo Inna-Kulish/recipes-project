@@ -1,17 +1,10 @@
-import { lazy } from "react";
-import { Route, Routes } from "react-router-dom";
-import SharedLayout from "./components/SharedLayout";
+import React from "react";
+import RootRouter from "./routes/RootRouter";
 
-const Home = lazy(() => import("./pages/Home"));
-
-const App = () => {
+const App: React.FC = () => {
 
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home/>} />
-      </Route>
-    </Routes>
+    <RootRouter/>
   );
 }
 

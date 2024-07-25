@@ -1,7 +1,8 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 
-const SharedLayout = () => {
+const SharedLayout: React.FC = () => {
   return (
     <>
       <Header />

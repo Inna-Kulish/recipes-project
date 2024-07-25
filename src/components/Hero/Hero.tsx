@@ -1,16 +1,15 @@
+import React from "react";
 import useFetch from "../../hooks/useFetch";
 import { DataResponse } from "../../utils/types";
 import styles from "./Hero.module.scss";
-import recipe from "../../assets/recipe.png";
-import world from "../../assets/world.svg";
-import fork from "../../assets/fork-knife.svg";
-import photo from "../../assets/photo.png";
-import Play from "../../assets/play-circle.svg?react";
+import recipe from "@/assets/images/hero/recipe.png";
+import world from "@/assets/icons/hero/world.svg";
+import fork from "@/assets/icons/hero/fork-knife.svg";
+import photo from "@/assets/images/hero/photo.png";
+import Play from "@/assets/icons/hero/play-circle.svg?react";
 
-const Hero = () => {
-  const { data } = useFetch<DataResponse>(
-    "https://www.themealdb.com/api/json/v1/1/random.php"
-  );
+const Hero: React.FC = () => {
+  const { data } = useFetch<DataResponse>("/random.php");
 
   return (
     <div className={`${styles.heroContainer}`}>
