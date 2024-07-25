@@ -1,11 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { NAV_LINKS, SOCIALS_LINKS } from "./navList";
 import styles from "./Header.module.scss";
-import Menu from "../../assets/menu.svg?react";
-import cross from "../../assets/cross.svg";
+import Menu from "@/assets/icons/header/menu.svg?react";
+import cross from "@/assets/icons/header/cross.svg";
 
-const Header = () => {
+const Header: React.FC = () => {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
   return (

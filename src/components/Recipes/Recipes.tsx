@@ -1,13 +1,15 @@
 import useFetch from "../../hooks/useFetch";
 import { DataResponse } from "../../utils/types";
 import styles from "./Recipes.module.scss";
-import ad from "../../assets/ad.png";
-import Heard from "../../assets/heard.svg?react";
+import ad from "@/assets/images/recipes/ad.png";
+import Heard from "@/assets/icons/recipes/heard.svg?react";
 
-const Recipes = () => {
-  const { data } = useFetch<DataResponse>(
-    "https://www.themealdb.com/api/json/v1/1/filter.php?i=Carrots"
-  );
+interface RecipesProps {
+  category: string;
+}
+
+const Recipes = ({category}: RecipesProps) => {
+  const { data } = useFetch<DataResponse>(`/filter.php?c=${category}`);
   console.log(data);
   return (
     <div className={styles.container}>

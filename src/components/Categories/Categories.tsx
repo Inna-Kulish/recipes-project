@@ -7,10 +7,12 @@ import { CategoryData } from "../../utils/types";
 import { CATEGORY_IMG, CategoryKey } from "./categoryImg";
 import styles from "./Categories.module.scss";
 
-const Categories = () => {
-  const { data } = useFetch<CategoryData>(
-    "https://www.themealdb.com/api/json/v1/1/list.php?c=list"
-  );
+interface CategoriesProps {
+  onSelectCategory: (category: string) => void;
+}
+
+const Categories = ({ onSelectCategory }: CategoriesProps) => {
+  const { data } = useFetch<CategoryData>("/list.php?c=list");
 
   return (
     <div className={styles.container}>
@@ -28,7 +30,7 @@ const Categories = () => {
       >
         {data?.meals.map(({ strCategory }, index) => (
           <SwiperSlide key={`${strCategory}_${index}`} className={styles.item}>
-            <a href="" className={styles.link}>
+            <a href="#" className={styles.link} onClick={() => onSelectCategory(strCategory)}>
               <img
                 className={styles.img}
                 src={CATEGORY_IMG[strCategory.toLowerCase() as CategoryKey]}
