@@ -1,15 +1,11 @@
 {
+  "files": [],
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "types": ["node"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
     },
   },
-  "include": ["src", "vite.config.ts"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
