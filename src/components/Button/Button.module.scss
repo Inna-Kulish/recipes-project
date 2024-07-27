@@ -1,0 +1,21 @@
+@import "@/styles/variables";
+
+.btn {
+  padding: 21px 53px 22px 52px;
+
+  font-size: 14px;
+  letter-spacing: -0.02em;
+
+  color: $white;
+  background-color: $black;
+  border-radius: 16px;
+  border: 1px solid $black;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+  color: $black;
+  background-color: $white;
+}
