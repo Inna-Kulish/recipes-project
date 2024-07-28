@@ -3,21 +3,24 @@ import { DataResponse } from "../../utils/types";
 import styles from "./Recipes.module.scss";
 import ad from "@/assets/images/recipes/ad.png";
 import Heard from "@/assets/icons/recipes/heard.svg?react";
+import DescribeSection from "../DescribeSection/DescribeSection";
 
 interface RecipesProps {
   category: string;
 }
 
-const Recipes = ({category}: RecipesProps) => {
+const Recipes = ({ category }: RecipesProps) => {
   const { data } = useFetch<DataResponse>(`/filter.php?c=${category}`);
   console.log(data);
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Simple and tasty recipes</h1>
-      <p className={styles.desc}>
-        Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqut enim ad minim
-      </p>
+      <div className={styles.DescWrap}>
+        <DescribeSection
+        title="Simple and tasty recipes"
+        describe="Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqut enim ad minim"
+      />
+      </div>
       <div className={styles.gridBox}>
         <ul className={styles.list}>
           {data?.meals.slice(0, 8).map(({ strMeal, strMealThumb, idMeal }) => (
