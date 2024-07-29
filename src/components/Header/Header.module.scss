@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 @import "@/styles/variables";
 
 .headerContainer {
@@ -9,19 +8,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.logo {
-  padding-top: 40px;
-  padding-bottom: 40px;
-
-  font-family: "Lobster", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-
-  span {
-    color: $red;
-  }
 }
 
 .navList {
@@ -39,20 +25,6 @@
     a:focus {
       color: $blueHover;
     }
-}
-
-.socialsList {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-
-  a {
-    transition: all 0.3s ease-in-out;
-  }
-
-  a:hover, a:focus {
-    fill: $blueHover;
-  }
 }
 
 .mobileContainer {
@@ -79,7 +51,7 @@
     fill: $blueHover;
   }
 
-  .socialsList {
+  .mobileBox ul:last-child {
     justify-content: center;
     margin-top: auto;
   }
