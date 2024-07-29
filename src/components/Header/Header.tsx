@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { NAV_LINKS, SOCIALS_LINKS } from "./navList";
+import { NavLink } from "react-router-dom";
+import { NAV_LINKS } from "./navList";
 import styles from "./Header.module.scss";
 import Menu from "@/assets/icons/header/menu.svg?react";
 import cross from "@/assets/icons/header/cross.svg";
+import Logo from "../Logo/Logo";
+import SocialsList from "../SocialsList/SocialsList";
 
 const Header: React.FC = () => {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
@@ -11,40 +13,28 @@ const Header: React.FC = () => {
   return (
     <header>
       <div className={`container ${styles.headerContainer}`}>
-          <nav className={styles.nav}>
-            <Link to="/" className={styles.logo}>
-              Foodieland<span>.</span>
-          </Link>
+        <nav className={styles.nav}>
+          <Logo />
           <ul className={styles.navList}>
             {NAV_LINKS.map(({ title, navLink }, index) => (
-                <li key={`${title}_${index}`}>
+              <li key={`${title}_${index}`}>
                 <NavLink to={navLink}>{title}</NavLink>
               </li>
-             ))}
-            </ul>
-          <ul className={styles.socialsList}>
-            {SOCIALS_LINKS.map(({name, Icon, link}, index) => (
-              <li key={`${name}_${index}`}>
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  <Icon />
-                </a>
-              </li>
             ))}
-            </ul>
+          </ul>
+          <SocialsList />
         </nav>
-        
-          {/*  Mobile menu */}
-          <div className={styles.mobileContainer}>
-            <button
-              className={styles.menuBtn}
-              onClick={() => setIsMenuToggled(!isMenuToggled)}
-            >
-              <Menu width={28} height={32} />
-            </button>
-            <Link to="/" className={styles.logo}>
-              Foodieland<span>.</span>
-            </Link>
-          </div>
+
+        {/*  Mobile menu */}
+        <div className={styles.mobileContainer}>
+          <button
+            className={styles.menuBtn}
+            onClick={() => setIsMenuToggled(!isMenuToggled)}
+          >
+            <Menu width={28} height={32} />
+          </button>
+          <Logo />
+        </div>
       </div>
       {isMenuToggled && (
         <div className={styles.mobileBox}>
@@ -59,19 +49,11 @@ const Header: React.FC = () => {
             {NAV_LINKS.map(({ title, navLink }, index) => (
               <li key={`${title}_${index}`}>
                 <NavLink to={navLink}>{title}</NavLink>
-            </li>
+              </li>
             ))}
           </ul>
 
-          <ul className={styles.socialsList}>
-            {SOCIALS_LINKS.map(({name, Icon, link}, index) => (
-              <li key={`${name}_${index}`}>
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  <Icon />
-                </a>
-              </li>
-            ))}
-            </ul>
+          <SocialsList />
         </div>
       )}
     </header>

@@ -1,0 +1,92 @@
+@import "@/styles/variables";
+
+.footerContainer {
+  margin-top: 160px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 48px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 1px solid $black10;
+
+  ul {
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: 1060px) {
+    flex-direction: row;
+    gap: 0;
+    padding-left: 80px;
+    padding-right: 80px;
+
+    justify-content: space-between;
+
+    ul {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.desc {
+  margin-top: 16px;
+  letter-spacing: 0;
+  line-height: 28px;
+  color: $black60;
+}
+
+.navList {
+  display: flex;
+  gap: 60px;
+
+  a {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  a:hover,
+  a:focus {
+    color: $blueHover;
+  }
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (min-width: 1060px) {
+    flex-direction: row;
+    gap: 0;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+.end {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: $black60;
+
+  span {
+    color: $fusionRed;
+  }
+}
