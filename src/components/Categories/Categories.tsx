@@ -1,3 +1,4 @@
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -11,7 +12,7 @@ interface CategoriesProps {
   onSelectCategory: (category: string) => void;
 }
 
-const Categories = ({ onSelectCategory }: CategoriesProps) => {
+const Categories:React.FC<CategoriesProps> = ({ onSelectCategory }) => {
   const { data } = useFetch<CategoryData>("/list.php?c=list");
 
   return (

@@ -1,22 +1,36 @@
-export const NAV_LINKS = [
+import { RoutePages } from "../../routes/RoutePages";
+
+export enum SectionIds {
+  blog = 'blog',
+  contact = 'contact',
+  about = 'about',
+}
+
+interface NavItem {
+  title: string;
+  navLink?: RoutePages;
+  sectionId?: SectionIds;
+}
+
+export const NAV_LINKS: NavItem[] = [
   {
     title: "Home",
-    navLink: "/",
+    navLink: RoutePages.Home,
   },
   {
     title: "Recipes",
-    navLink: "/recipes",
+    navLink: RoutePages.Recipes,
   },
   {
     title: "Blog",
-    navLink: "/blog",
+    sectionId: SectionIds.blog,
   },
   {
     title: "Contact",
-    navLink: "/contact",
+    sectionId: SectionIds.contact,
   },
   {
     title: "About us",
-    navLink: "/about",
+    sectionId: SectionIds.about,
   },
 ];
