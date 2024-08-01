@@ -1,13 +1,12 @@
+import React from "react";
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
-    name: string;
+  name: string;
 }
 
-const Button = ({name}: ButtonProps) => {
-    return (
-        <button className={styles.btn}>{name}</button>
-    )
-}
+const Button: React.FC<ButtonProps> = ({ name }) => (
+  <button className={styles.btn}>{name}</button>
+);
 
 export default Button;

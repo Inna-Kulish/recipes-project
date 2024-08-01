@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./DescribeSection.module.scss";
 
 interface DescribeSectionProps {
@@ -5,13 +6,14 @@ interface DescribeSectionProps {
   describe: string;
 }
 
-const DescribeSection = ({ title, describe }: DescribeSectionProps) => {
-  return (
-    <>
-      <h2 className={styles.title}>{title}</h2>
-      <p className={styles.desc}>{describe}</p>
-    </>
-  );
-};
+const DescribeSection: React.FC<DescribeSectionProps> = ({
+  title,
+  describe,
+}) => (
+  <>
+    <h2 className={styles.title}>{title}</h2>
+    <p className={styles.desc}>{describe}</p>
+  </>
+);
 
 export default DescribeSection;

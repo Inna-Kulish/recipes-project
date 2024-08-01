@@ -1,11 +1,6 @@
 import React from "react";
 import RootRouter from "./routes/RootRouter";
 
-const App: React.FC = () => {
+const App: React.FC = () => <RootRouter />;
 
-  return (
-    <RootRouter/>
-  );
-}
-
-export default App
+export default App;

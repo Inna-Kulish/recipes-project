@@ -1,3 +1,4 @@
 export enum RoutePages {
-Home = '/',
+    Home = '/',
+    Recipes = '/recipes',
 }

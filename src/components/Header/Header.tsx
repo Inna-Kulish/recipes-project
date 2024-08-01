@@ -1,14 +1,27 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { NAV_LINKS } from "./navList";
+import { useNavigate } from "react-router-dom";
+import { NAV_LINKS, SectionIds } from "./navList";
 import styles from "./Header.module.scss";
 import Menu from "@/assets/icons/header/menu.svg?react";
 import cross from "@/assets/icons/header/cross.svg";
 import Logo from "../Logo/Logo";
 import SocialsList from "../SocialsList/SocialsList";
+import { RoutePages } from "../../routes/RoutePages";
 
 const Header: React.FC = () => {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  const handleNavClick = (navLink?: RoutePages, sectionId?: SectionIds) => {
+    if (sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else if (navLink) {
+      navigate(navLink);
+    }
+  }
 
   return (
     <header>
@@ -16,9 +29,9 @@ const Header: React.FC = () => {
         <nav className={styles.nav}>
           <Logo />
           <ul className={styles.navList}>
-            {NAV_LINKS.map(({ title, navLink }, index) => (
+            {NAV_LINKS.map(({ title, navLink, sectionId }, index) => (
               <li key={`${title}_${index}`}>
-                <NavLink to={navLink}>{title}</NavLink>
+                <a onClick={()=> handleNavClick(navLink, sectionId)}>{title}</a>
               </li>
             ))}
           </ul>
@@ -46,9 +59,9 @@ const Header: React.FC = () => {
           </button>
 
           <ul className={styles.mobileList}>
-            {NAV_LINKS.map(({ title, navLink }, index) => (
+            {NAV_LINKS.map(({ title, navLink, sectionId }, index) => (
               <li key={`${title}_${index}`}>
-                <NavLink to={navLink}>{title}</NavLink>
+                 <a onClick={()=> handleNavClick(navLink, sectionId)}>{title}</a>
               </li>
             ))}
           </ul>
