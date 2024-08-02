@@ -5,8 +5,8 @@
 }
 
 .DescWrap {
-max-width: 706px;
-margin-left: auto;
+  max-width: 706px;
+  margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
@@ -35,6 +35,14 @@ margin-left: auto;
 
   border-radius: 30px;
   background-image: linear-gradient($blueLiner 0, $blueLiner 100%);
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.item:hover, .item:focus {
+transform: scale(1.1);
+background-image: linear-gradient($blueLiner 0, $blueHover 100%);
 }
 
 .photo {
@@ -57,10 +65,21 @@ margin-left: auto;
   border-radius: 50%;
   background-color: $white;
 
-  svg {
-    display: block;
-    fill: $fusionRed;
-  }
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:focus,
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.heardIcon {
+  display: block;
+  fill: $gray;
+}
+
+.heardIconActive {
+  fill: $fusionRed;
 }
 
 .adWrap {
