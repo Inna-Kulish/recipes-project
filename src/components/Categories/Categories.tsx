@@ -9,20 +9,11 @@ import { CATEGORY_IMG, CategoryKey } from "./categoryImg";
 import styles from "./Categories.module.scss";
 
 interface CategoriesProps {
-  clearSearch?: (query: string) => void;
-  onSelectCategory: (category: string) => void;
+  onCategoryClick: (category: string) => void;
 }
 
-const Categories:React.FC<CategoriesProps> = ({ clearSearch, onSelectCategory }) => {
+const Categories:React.FC<CategoriesProps> = ({ onCategoryClick }) => {
   const { data } = useFetch<CategoryData>("/list.php?c=list");
-
-  const handleClick = (strCategory: string) => {
-    if (clearSearch) {
-      clearSearch("");
-    }
-    
-    onSelectCategory(strCategory);
-}
 
   return (
     <div className={styles.container}>
@@ -40,7 +31,7 @@ const Categories:React.FC<CategoriesProps> = ({ clearSearch, onSelectCategory })
       >
         {data?.meals.map(({ strCategory }, index) => (
           <SwiperSlide key={`${strCategory}_${index}`} className={styles.item}>
-            <a href="#" className={styles.link} onClick={() => handleClick(strCategory)}>
+            <a href="#" className={styles.link} onClick={()=>onCategoryClick(strCategory)}>
               <img
                 className={styles.img}
                 src={CATEGORY_IMG[strCategory.toLowerCase() as CategoryKey]}

@@ -8,11 +8,15 @@ import Subscribe from "../components/Subscribe/Subscribe";
 const Home: React.FC = () => {
   const DEFAULT_CATEGORY = "Beef";
   const [selectedCategory, setSelectedCategory] = useState<string>(DEFAULT_CATEGORY);
+
+   const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);
+  }
   
   return (
     <>
       <Hero />
-      <Categories onSelectCategory={setSelectedCategory} />
+      <Categories onCategoryClick={handleCategoryClick} />
       <Recipes category={selectedCategory} />
       <LearnMore />
       <Subscribe/>
