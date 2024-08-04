@@ -18,14 +18,22 @@ const useFetch = <T>(endpoint: string): FetchState<T> => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(API_URL+endpoint);
+        const response = await axios.get(API_URL + endpoint);
+
+        if (!response.data.meals) {
+          alert(
+            "Sorry, there are no recipes matching your search query. Please try again."
+          );
+          return;
+        }
 
         setData(response.data);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         setError(error.message);
       }
-        setLoading(false);
+      setLoading(false);
     };
 
     fetchData();

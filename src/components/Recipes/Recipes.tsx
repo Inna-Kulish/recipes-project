@@ -2,13 +2,16 @@ import React from "react";
 import styles from "./Recipes.module.scss";
 import DescribeSection from "../DescribeSection/DescribeSection";
 import RecipesList from "./RecipesList";
+import useFetch from "../../hooks/useFetch";
+import { DataResponse } from "../../utils/types";
 
-export interface RecipesProps {
+interface RecipesProps {
   category: string;
 }
 
 const Recipes: React.FC<RecipesProps> = ({ category }) => {
-
+  const { data } = useFetch<DataResponse>(`/filter.php?c=${category}`);
+  
   return (
     <div className={styles.container}>
       <div className={styles.DescWrap}>
@@ -18,7 +21,7 @@ const Recipes: React.FC<RecipesProps> = ({ category }) => {
         tempor incididunt ut labore et dolore magna aliqut enim ad minim"
         />
       </div>
-      <RecipesList category={category} />
+      <RecipesList data={data} />
     </div>
   );
 };
