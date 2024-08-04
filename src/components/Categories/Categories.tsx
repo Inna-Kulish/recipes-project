@@ -9,7 +9,7 @@ import { CATEGORY_IMG, CategoryKey } from "./categoryImg";
 import styles from "./Categories.module.scss";
 
 interface CategoriesProps {
-  clearSearch: (query: string) => void;
+  clearSearch?: (query: string) => void;
   onSelectCategory: (category: string) => void;
 }
 
@@ -17,7 +17,10 @@ const Categories:React.FC<CategoriesProps> = ({ clearSearch, onSelectCategory })
   const { data } = useFetch<CategoryData>("/list.php?c=list");
 
   const handleClick = (strCategory: string) => {
-    clearSearch("");
+    if (clearSearch) {
+      clearSearch("");
+    }
+    
     onSelectCategory(strCategory);
 }
 
