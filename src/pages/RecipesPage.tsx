@@ -29,6 +29,11 @@ const RecipesPage: React.FC = () => {
   const isLoading = loadingCategory || loadingSearch;
   const hasError = errorCategory || errorSearch;
 
+  const handleSearchSubmit = (query: string) => {
+    setVisibleRecipeCount(8);
+    setSearchQuery(query);
+  }
+
   const handleCategoryClick = (category: string) => {
     setSearchQuery("");
     setVisibleRecipeCount(8);
@@ -41,7 +46,7 @@ const RecipesPage: React.FC = () => {
 
   return (
     <>
-      <SearchForm q={searchQuery} onSubmit={setSearchQuery} />
+      <SearchForm q={searchQuery} onSubmit={handleSearchSubmit} />
       <Categories onCategoryClick={handleCategoryClick} />
       {isLoading ? (
         <p>loading...</p>

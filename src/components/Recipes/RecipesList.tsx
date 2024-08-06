@@ -3,13 +3,17 @@ import styles from "./Recipes.module.scss";
 import ad from "@/assets/images/recipes/ad.png";
 import Heard from "@/assets/icons/recipes/heard.svg?react";
 import { DataResponse } from "../../utils/types";
+import { Link } from "react-router-dom";
 
 interface RecipesListProps {
   data: DataResponse | null;
   visibleRecipeCount?: number;
 }
 
-const RecipesList: React.FC<RecipesListProps> = ({ data, visibleRecipeCount=8 }) => {
+const RecipesList: React.FC<RecipesListProps> = ({
+  data,
+  visibleRecipeCount = 8,
+}) => {
   const [onHeardClick, setOnHeardClick] = useState<boolean[]>([]);
 
   const handleHeardClick = (index: number) => {
@@ -28,11 +32,14 @@ const RecipesList: React.FC<RecipesListProps> = ({ data, visibleRecipeCount=8 })
             .slice(0, visibleRecipeCount)
             .map(({ strMeal, strMealThumb, idMeal }, index) => (
               <li key={idMeal} className={styles.item}>
-                <img
-                  className={styles.photo}
-                  src={strMealThumb}
-                  alt={strMeal}
-                />
+                <Link to={`/recipes/${idMeal}`}>
+                  <img
+                    className={styles.photo}
+                    src={strMealThumb}
+                    alt={strMeal}
+                  />
+                  <h3 className={styles.name}>{strMeal}</h3>
+                </Link>
                 <button
                   className={styles.btn}
                   onClick={() => handleHeardClick(index)}
@@ -43,7 +50,6 @@ const RecipesList: React.FC<RecipesListProps> = ({ data, visibleRecipeCount=8 })
                     }`}
                   />
                 </button>
-                <h3 className={styles.name}>{strMeal}</h3>
               </li>
             ))}
         </ul>

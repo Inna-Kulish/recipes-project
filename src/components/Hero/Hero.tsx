@@ -7,6 +7,7 @@ import world from "@/assets/icons/hero/world.svg";
 import fork from "@/assets/icons/hero/fork-knife.svg";
 import photo from "@/assets/images/hero/photo.png";
 import Play from "@/assets/icons/hero/play-circle.svg?react";
+import { Link } from "react-router-dom";
 
 const Hero: React.FC = () => {
   const { data } = useFetch<DataResponse>("/random.php");
@@ -39,10 +40,10 @@ const Hero: React.FC = () => {
               <p className={styles.date}>15 March 2022</p>
             </div>
           </div>
-          <button className={styles.moreBtn}>
+          <Link to={`/recipes/${data?.meals[0].idMeal}`} className={styles.moreBtn}>
             View Recipes
             <Play />
-          </button>
+          </Link>
         </div>
       </div>
      
