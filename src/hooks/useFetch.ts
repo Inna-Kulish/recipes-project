@@ -7,7 +7,7 @@ interface FetchState<T> {
   error: string | null;
 }
 
-const API_URL = "https://www.themealdb.com/api/json/v1/1";
+const API_URL = import.meta.env.VITE_URL;
 
 const useFetch = <T>(endpoint: string): FetchState<T> => {
   const [data, setData] = useState<T | null>(null);
