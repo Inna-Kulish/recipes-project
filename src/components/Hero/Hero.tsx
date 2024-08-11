@@ -6,6 +6,7 @@ import recipe from "@/assets/images/hero/recipe.png";
 import world from "@/assets/icons/hero/world.svg";
 import fork from "@/assets/icons/hero/fork-knife.svg";
 import photo from "@/assets/images/hero/photo.png";
+import defaultPhoto from "@/assets/images/hero/defaultPhoto.png";
 import Play from "@/assets/icons/hero/play-circle.svg?react";
 import { Link } from "react-router-dom";
 
@@ -47,7 +48,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
      
-        <img src={data?.meals[0].strMealThumb} alt="meal" className={styles.imgMeal} />
+        <img src={data?.meals[0].strMealThumb ?? defaultPhoto} alt="meal" className={styles.imgMeal} />
       
     </div>
   );

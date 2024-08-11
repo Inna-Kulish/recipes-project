@@ -5,6 +5,8 @@ import SearchForm from "../components/SearchForm/SearchForm";
 import useFetch from "../hooks/useFetch";
 import { DataResponse } from "../utils/types";
 import LoadMore from "../components/LoadMore/LoadMore";
+import Loader from "../components/Loader/Loader";
+import { Report } from "notiflix/build/notiflix-report-aio";
 
 const RecipesPage: React.FC = () => {
   const DEFAULT_CATEGORY = "Beef";
@@ -32,7 +34,7 @@ const RecipesPage: React.FC = () => {
   const handleSearchSubmit = (query: string) => {
     setVisibleRecipeCount(8);
     setSearchQuery(query);
-  }
+  };
 
   const handleCategoryClick = (category: string) => {
     setSearchQuery("");
@@ -49,14 +51,20 @@ const RecipesPage: React.FC = () => {
       <SearchForm q={searchQuery} onSubmit={handleSearchSubmit} />
       <Categories onCategoryClick={handleCategoryClick} />
       {isLoading ? (
-        <p>loading...</p>
+        <Loader />
       ) : hasError ? (
-        <p>Error: {hasError}</p>
+        Report.failure(
+          "OPPS",
+          "Something went wrong! Please restart the page. Thank you.",
+          "Okay"
+        )
       ) : (
-        <RecipesList data={recipes} visibleRecipeCount={visibleRecipeCount} />
-      )}
-      {recipes?.meals && recipes.meals.length > visibleRecipeCount && (
-        <LoadMore onClick={handleLoadMore} />
+        <>
+          <RecipesList data={recipes} visibleRecipeCount={visibleRecipeCount} />
+          {recipes?.meals && recipes.meals.length > visibleRecipeCount && (
+            <LoadMore onClick={handleLoadMore} />
+          )}
+        </>
       )}
     </>
   );
