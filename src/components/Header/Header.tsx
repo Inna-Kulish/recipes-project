@@ -30,7 +30,7 @@ const Header: React.FC = () => {
           <Logo />
           <ul className={styles.navList}>
             {NAV_LINKS.map(({ title, navLink, sectionId }, index) => (
-              <li key={`${title}_${index}`}>
+              <li key={`${title}_${index}`} className={styles.item}>
                 <a onClick={()=> handleNavClick(navLink, sectionId)}>{title}</a>
               </li>
             ))}
@@ -60,7 +60,7 @@ const Header: React.FC = () => {
 
           <ul className={styles.mobileList}>
             {NAV_LINKS.map(({ title, navLink, sectionId }, index) => (
-              <li key={`${title}_${index}`}>
+              <li key={`${title}_${index}`} className={styles.item}>
                  <a onClick={()=> handleNavClick(navLink, sectionId)}>{title}</a>
               </li>
             ))}

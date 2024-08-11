@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Report } from "notiflix/build/notiflix-report-aio";
 
 interface FetchState<T> {
   data: T | null;
@@ -21,8 +22,10 @@ const useFetch = <T>(endpoint: string): FetchState<T> => {
         const response = await axios.get(API_URL + endpoint);
 
         if (!response.data.meals) {
-          alert(
-            "Sorry, there are no recipes matching your search query. Please try again."
+          Report.failure(
+            "OPPS",
+            "Sorry, there are no recipes matching your search query. Please try again.",
+            "Okay"
           );
           return;
         }

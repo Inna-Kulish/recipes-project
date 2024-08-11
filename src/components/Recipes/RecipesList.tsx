@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Recipes.module.scss";
 import ad from "@/assets/images/recipes/ad.png";
+import defaultPhoto from "@/assets/images/hero/defaultPhoto.png";
 import Heard from "@/assets/icons/recipes/heard.svg?react";
 import { DataResponse } from "../../utils/types";
 import { Link } from "react-router-dom";
@@ -35,7 +36,7 @@ const RecipesList: React.FC<RecipesListProps> = ({
                 <Link to={`/recipes/${idMeal}`}>
                   <img
                     className={styles.photo}
-                    src={strMealThumb}
+                    src={strMealThumb ?? defaultPhoto}
                     alt={strMeal}
                   />
                   <h3 className={styles.name}>{strMeal}</h3>
