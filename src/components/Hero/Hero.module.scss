@@ -1,4 +1,25 @@
+@keyframes stamp {
+  0% {
+    transform: scale(3);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 .heroContainer {
+  position: relative;
   overflow: hidden;
   margin-top: 40px;
   margin-bottom: 162px;
@@ -164,5 +185,20 @@
   @media screen and (min-width: 1060px) {
     width: 50%;
     height: 100%;
+  }
+}
+
+.badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 75px;
+
+  animation: stamp 1s ease forwards;
+
+  @media screen and (min-width: 1060px) {
+    width: 150px;
+    top: 50px;
+    left: calc(50% - 50px);
   }
 }

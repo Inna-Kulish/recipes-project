@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NAV_LINKS, SectionIds } from "./navList";
 import styles from "./Header.module.scss";
 import Menu from "@/assets/icons/header/menu.svg?react";
@@ -11,17 +11,30 @@ import { RoutePages } from "../../routes/RoutePages";
 const Header: React.FC = () => {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavClick = (navLink?: RoutePages, sectionId?: SectionIds) => {
-    if (sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+     if (sectionId) {
+       if (location.pathname !== RoutePages.Home) {
+        navigate(RoutePages.Home);
+         setTimeout(() => {
+           console.log(sectionId);
+          scrollToSection(sectionId);
+        }, 1000);
+      } else {
+        scrollToSection(sectionId);
       }
     } else if (navLink) {
       navigate(navLink);
     }
   }
+
+  const scrollToSection = (sectionId: SectionIds) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <header>

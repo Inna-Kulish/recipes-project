@@ -12,7 +12,7 @@ const Home: React.FC = () => {
    const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
   }
-  
+
   return (
     <>
       <Hero />
