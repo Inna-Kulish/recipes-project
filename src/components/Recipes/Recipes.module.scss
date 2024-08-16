@@ -84,6 +84,7 @@ background-image: linear-gradient($blueLiner 0, $blueHover 100%);
 }
 
 .adWrap {
+  display: block;
   padding-top: 40px;
   padding-bottom: 32px;
 
@@ -93,6 +94,8 @@ background-image: linear-gradient($blueLiner 0, $blueHover 100%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+
+  cursor: pointer;
 
   @media screen and (min-width: 1060px) {
     grid-column: 3 / 4;

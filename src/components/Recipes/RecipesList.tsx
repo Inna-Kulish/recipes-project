@@ -54,13 +54,13 @@ const RecipesList: React.FC<RecipesListProps> = ({
               </li>
             ))}
         </ul>
-        <div className={styles.adWrap}>
+        <a className={styles.adWrap} href="/">
           <h4 className={styles.adTitle}>Don’t forget to eat healthy food</h4>
           <img className={styles.adImg} src={ad} alt="plate with food" />
-          <a href="/" className={styles.link}>
+          <p className={styles.link}>
             www.foodieland.com
-          </a>
-        </div>
+          </p>
+        </a>
       </div>
     </>
   );
