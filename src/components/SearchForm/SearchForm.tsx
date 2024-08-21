@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import Button from "../Button/Button";
 import styles from "./SearchForm.module.scss";
 
@@ -7,7 +7,7 @@ interface SearchFormProps {
     onSubmit: (query: string) => void;
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ q, onSubmit }) => {
+const SearchForm: React.FC<SearchFormProps> = memo(({ q, onSubmit }) => {
   const [query, setQuery] = useState("");
 
   const handleChange = (event: { target: { value: string; }; }) => {
@@ -40,6 +40,6 @@ const SearchForm: React.FC<SearchFormProps> = ({ q, onSubmit }) => {
       <Button name={"Search"} />
     </form>
   );
-};
+});
 
 export default SearchForm;

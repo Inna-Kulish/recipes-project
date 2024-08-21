@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styles from "./Recipes.module.scss";
 import DescribeSection from "../DescribeSection/DescribeSection";
 import RecipesList from "./RecipesList";
@@ -11,6 +11,10 @@ interface RecipesProps {
 
 const Recipes: React.FC<RecipesProps> = ({ category }) => {
   const { data } = useFetch<DataResponse>(`/filter.php?c=${category}`);
+
+  const filteredRecipes = useMemo(() => {
+    return { meals: data?.meals || [] };
+  }, [data]);
   
   return (
     <div className={styles.container}>
@@ -21,7 +25,7 @@ const Recipes: React.FC<RecipesProps> = ({ category }) => {
         tempor incididunt ut labore et dolore magna aliqut enim ad minim"
         />
       </div>
-      <RecipesList data={data} />
+      <RecipesList data={filteredRecipes} />
     </div>
   );
 };

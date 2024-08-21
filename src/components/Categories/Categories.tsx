@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -15,6 +15,10 @@ interface CategoriesProps {
 const Categories:React.FC<CategoriesProps> = ({ onCategoryClick }) => {
   const { data } = useFetch<CategoryData>("/list.php?c=list");
 
+  const filteredCategories = useMemo(() => {
+    return data?.meals || [] ;
+  }, [data]);
+
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Categories</h2>
@@ -29,9 +33,9 @@ const Categories:React.FC<CategoriesProps> = ({ onCategoryClick }) => {
         }}
         className={`${styles.list} mySwiper`}
       >
-        {data?.meals.map(({ strCategory }, index) => (
+        {filteredCategories.map(({ strCategory }, index) => (
           <SwiperSlide key={`${strCategory}_${index}`} className={styles.item}>
-            <a href="#" className={styles.link} onClick={()=>onCategoryClick(strCategory)}>
+            <div className={styles.link} onClick={()=>onCategoryClick(strCategory)}>
               <img
                 className={styles.img}
                 src={CATEGORY_IMG[strCategory.toLowerCase() as CategoryKey]}
@@ -40,7 +44,7 @@ const Categories:React.FC<CategoriesProps> = ({ onCategoryClick }) => {
                 height="100px"
               />
               <p className={styles.name}>{strCategory}</p>
-            </a>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
