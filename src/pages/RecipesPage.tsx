@@ -11,8 +11,7 @@ import { Report } from "notiflix/build/notiflix-report-aio";
 const RecipesPage: React.FC = () => {
   const DEFAULT_CATEGORY = "Beef";
   const LOADMORE_NUMBER = 9;
-  const [selectedCategory, setSelectedCategory] =
-    useState<string>(DEFAULT_CATEGORY);
+  const [selectedCategory, setSelectedCategory] = useState<string>(DEFAULT_CATEGORY);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [visibleRecipeCount, setVisibleRecipeCount] = useState(8);
 

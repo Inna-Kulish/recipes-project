@@ -9,9 +9,9 @@ const Home: React.FC = () => {
   const DEFAULT_CATEGORY = "Beef";
   const [selectedCategory, setSelectedCategory] = useState<string>(DEFAULT_CATEGORY);
 
-   const handleCategoryClick = (category: string) => {
+  const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
-  }
+  };
 
   return (
     <>

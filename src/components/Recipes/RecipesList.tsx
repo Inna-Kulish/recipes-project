@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import styles from "./Recipes.module.scss";
 import ad from "@/assets/images/recipes/ad.png";
 import defaultPhoto from "@/assets/images/hero/defaultPhoto.png";
@@ -11,7 +11,7 @@ interface RecipesListProps {
   visibleRecipeCount?: number;
 }
 
-const RecipesList: React.FC<RecipesListProps> = ({
+const RecipesList: React.FC<RecipesListProps> = memo(({
   data,
   visibleRecipeCount = 8,
 }) => {
@@ -64,6 +64,6 @@ const RecipesList: React.FC<RecipesListProps> = ({
       </div>
     </>
   );
-};
+});
 
 export default RecipesList;
