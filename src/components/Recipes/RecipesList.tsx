@@ -56,7 +56,7 @@ const RecipesList: React.FC<RecipesListProps> = memo(({
         </ul>
         <a className={styles.adWrap} href="/">
           <h4 className={styles.adTitle}>Don’t forget to eat healthy food</h4>
-          <img className={styles.adImg} src={ad} alt="plate with food" />
+          <img className={styles.adImg} src={ad} alt="plate with food" width="354px" height="336px" loading="lazy"/>
           <p className={styles.link}>
             www.foodieland.com
           </p>

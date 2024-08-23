@@ -192,12 +192,10 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  width: 75px;
 
   animation: stamp 1s ease forwards;
 
   @media screen and (min-width: 1060px) {
-    width: 150px;
     top: 50px;
     left: calc(50% - 50px);
   }
