@@ -7,7 +7,8 @@ import world from "@/assets/icons/hero/world.svg";
 import fork from "@/assets/icons/hero/fork-knife.svg";
 import photo from "@/assets/images/hero/photo.png";
 import defaultPhoto from "@/assets/images/hero/defaultPhoto.png";
-import badge from "@/assets/images/hero/badge.png";
+import badgeTab from "@/assets/images/hero/badge_tab.png";
+import badgeDesc from "@/assets/images/hero/badge_desc.png";
 import Play from "@/assets/icons/hero/play-circle.svg?react";
 import { Link } from "react-router-dom";
 
@@ -18,7 +19,7 @@ const Hero: React.FC = () => {
     <div className={`${styles.heroContainer}`}>
       <div className={styles.descWrap}>
         <p className={styles.hotRecipe}>
-          <img src={recipe} alt="recipe" />
+          <img src={recipe} alt="recipe" width="24px" height="24px"/>
           Hot Recipes
         </p>
         <h2 className={styles.title}>{data?.meals[0].strMeal}</h2>
@@ -36,7 +37,7 @@ const Hero: React.FC = () => {
         </div>
         <div className={styles.box}>
           <div className={styles.authorBox}>
-            <img src={photo} alt="men" />
+            <img src={photo} alt="men" width="50px" height="50px"/>
             <div className={styles.authorDesc}>
               <p className={styles.name}>John Smith</p>
               <p className={styles.date}>15 March 2022</p>
@@ -49,8 +50,15 @@ const Hero: React.FC = () => {
         </div>
       </div>
      
-        <img src={data?.meals[0].strMealThumb ?? defaultPhoto} alt="meal" className={styles.imgMeal} />
-      <img className={styles.badge} src={badge} alt="badge" />
+      <img src={data?.meals[0].strMealThumb ?? defaultPhoto} alt="meal" className={styles.imgMeal} />
+      
+      <div className={styles.badge}>
+        <picture>
+        <source media="(min-width: 1060px)" srcSet={badgeDesc} type="image/png" width="150px" height="150px"/>
+        <source media="(max-width: 1059px)" srcSet={badgeTab} type="image/png" width="75px" height="75px"/>
+        <img src={badgeTab} alt="badge" width="75px" height="75px"/>
+      </picture>
+      </div>
     </div>
   );
 };

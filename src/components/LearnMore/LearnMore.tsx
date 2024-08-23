@@ -2,7 +2,9 @@ import React from "react";
 import Button from "../Button/Button";
 import DescribeSection from "../DescribeSection/DescribeSection";
 import styles from "./LearnMore.module.scss";
-import chef from "@/assets/images/learn_more/chef.png";
+import chefDesc from "@/assets/images/learn_more/chef_desc.png";
+import chefTab from "@/assets/images/learn_more/chef_tab.png";
+import chefMob from "@/assets/images/learn_more/chef_mob.png";
 import { SectionIds } from "../Header/navList";
 
 const LearnMore: React.FC = () => (
@@ -15,7 +17,36 @@ const LearnMore: React.FC = () => (
       />
       <Button name={"Learn More"} />
     </div>
-    <img src={chef} alt="portrait happy male chef dressed uniform" />
+    <picture>
+      <source
+        media="(min-width: 768px)"
+        srcSet={chefDesc}
+        type="image/png"
+        width="710px"
+        height="597px"
+      />
+      <source
+        media="(max-width: 767px)"
+        srcSet={chefTab}
+        type="image/png"
+        width="526px"
+        height="442px"
+      />
+      <source
+        media="(min-width: 375px)"
+        srcSet={chefMob}
+        type="image/png"
+        width="329px"
+        height="277px"
+      />
+      <img
+        src={chefMob}
+        alt="portrait happy male chef dressed uniform"
+        width="329px"
+        height="277px"
+        loading="lazy"
+      />
+    </picture>
   </div>
 );
 

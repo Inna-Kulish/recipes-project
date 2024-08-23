@@ -42,6 +42,7 @@ const Categories:React.FC<CategoriesProps> = ({ onCategoryClick }) => {
                 alt={strCategory}
                 width="100px"
                 height="100px"
+                loading="lazy"
               />
               <p className={styles.name}>{strCategory}</p>
             </div>
